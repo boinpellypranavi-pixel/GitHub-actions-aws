@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "pranavi_cluster" {
-  name = "nprod-cluster-pranavi"
+  name = "staging-cluster-pranavi"
 }
 
 resource "aws_ecs_task_definition" "pranavi_backend" {
@@ -18,7 +18,7 @@ resource "aws_ecs_task_definition" "pranavi_backend" {
       hostPort      = 5000
     }]
     environment = [
-      { name = "NODE_ENV", value = "nprod" },
+      { name = "NODE_ENV", value = "staging" },
       { name = "API_KEY", value = "your-api-key" }
     ]
     logConfiguration = {
