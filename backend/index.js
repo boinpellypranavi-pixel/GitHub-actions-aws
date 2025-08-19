@@ -1,15 +1,13 @@
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
-
-app.use(express.json());
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'Backend is healthy' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`);
-});
-// Export the app for testing purposes
-module.exports = app;
+1  const express = require('express');
+2  const app = express();
+3  const PORT = process.env.PORT || 5000;
+4
+5  app.use(express.json());
+6
+7  app.get('/api/health', (req, res) => {
+8    res.json({ status: 'Backend is healthy' });
+9  });
+10
+11 app.listen(PORT, () => {
+12   console.log(`Backend running on port ${PORT}`);
+13 });
