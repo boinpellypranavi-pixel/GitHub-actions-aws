@@ -69,7 +69,7 @@ resource "aws_ecs_task_definition" "frontend_pranavi_task" {
 
   container_definitions = jsonencode([{
     name      = "frontend_pranavi"
-    image     = "102345621.dkr.ecr.us-east-1.amazonaws.com/frontend_pranavi:latest" # Replace with your ECR image
+    image     = "102345621.dkr.ecr.us-east-1.amazonaws.com/frontend_pranavi:latest" 
     essential = true
     portMappings = [{
       containerPort = 3000
