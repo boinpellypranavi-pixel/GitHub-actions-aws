@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "pranavi_backend" {
 
   container_definitions = jsonencode([{
     name      = "backend"
-    image     = "102345621.dkr.ecr.ca-central-1.amazonaws.com/backend:latest" 
+    image     = "610751226500.dkr.ecr.ca-central-1.amazonaws.com/backend:latest" 
     essential = true
     portMappings = [{
       containerPort = 5000
@@ -37,7 +37,7 @@ resource "aws_ecs_service" "ecs_pranavi_backend_service" {
   name            = "ecs_pranavi_backend-service"
   cluster         = aws_ecs_cluster.pranavi_cluster.id
   task_definition = aws_ecs_task_definition.pranavi_backend.arn
-  desired_count   = 2  
+  desired_count   = 1 
 
   launch_type = "FARGATE"
 
@@ -69,7 +69,7 @@ resource "aws_ecs_task_definition" "frontend_pranavi_task" {
 
   container_definitions = jsonencode([{
     name      = "frontend_pranavi"
-    image     = "102345621.dkr.ecr.us-east-1.amazonaws.com/frontend_pranavi:latest" 
+    image     = "610751226500.dkr.ecr.us-east-1.amazonaws.com/frontend_pranavi:latest" 
     essential = true
     portMappings = [{
       containerPort = 3000
@@ -94,7 +94,7 @@ resource "aws_ecs_service" "frontend_pranavi_service" {
   name            = "frontend_pranavi-service"
   cluster         = aws_ecs_cluster.staging_cluster.id
   task_definition = aws_ecs_task_definition.frontend_pranavi_task.arn
-  desired_count   = 2  # Number of tasks
+  desired_count   = 1  # Number of tasks
 
   launch_type = "FARGATE"
 
